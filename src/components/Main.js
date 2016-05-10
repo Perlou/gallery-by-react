@@ -1,27 +1,32 @@
-require('normalize.css/normalize.css');
+/**
+ * @author Perlou
+ * @Main.js
+ * @return Gallery
+ */
+ 
 require('styles/App.css');
 
 import React from 'react';
 
 // 引入图片信息
-var imagesDates = require('../stores/imagesDates.json');
+var imagesDatas = require('../stores/imagesDatas.json');
 
 /**
  * @return {Array}
  */
-imagesDates = (function genImageUrl(imageDatasArr){
+// imagesDatas = (function genImageUrl(imageDatasArr){
 
-	for(var i = 0, j = imageDatasArr.length; i < j; i++){
-		var singleImageDate = imageDatasArr[i];
+// 	for(var i = 0, j = imageDatasArr.length; i < j; i++){
+// 		var singleImageData = imageDatasArr[i];
 
-		singleImageDate.imageUrl = require('../images/' + singleImageDate.fileName);
-		imageDatasArr[i] = singleImageDate;
+// 		singleImageData.imageUrl = require('../images/' + singleImageData.fileName);
+// 		imageDatasArr[i] = singleImageData;
 
-	}
+// 	}
 
-	return imageDatasArr;
+// 	return imageDatasArr;
 
-})(imagesDates);
+// })(imagesDatas);
 
 var Gallery = React.createClass({
 	render: function(){
@@ -29,13 +34,13 @@ var Gallery = React.createClass({
 			<section className="stage">
 
 				<section className="img-sec">
-
+					img
 				</section>
 
 				<nav className="controller-nav">
-
+					nav
 				</nav>
-				
+
 			</section>
 		);
 	}
