@@ -9,6 +9,8 @@
 require('styles/App.css');
 
 import React from 'react';
+import ImgFigure from './ImgFigure';
+import ControllerUnits from './ControllerUnits';
 
 /**
  * Func 获取随机数	
@@ -43,104 +45,7 @@ imageDatas = (function genImageURL(imageDatasArr) {
     return imageDatasArr;
 })(imageDatas);
 
-var ControllerUnits = React.createClass({
-
-	handleClick: function(ev){
-
-		if(this.props.arrange.isCenter){
-			this.props.inverse();
-		}else{
-			this.props.center();
-		}
-
-		ev.stopPropagation();
-		ev.preventDefault();
-
-	},
-
-	render: function(){
-
-		var controllerUnitClassName = "controller-unit";
-
-		if(this.props.arrange.isCenter){
-
-			controllerUnitClassName += ' is-center-unit';
-
-			if(this.props.arrange.isInverse){
-				controllerUnitClassName += ' is-inverse-unit';
-			}
-
-		}
-
-		return (
-			<span
-				className={controllerUnitClassName} 
-				onClick={this.handleClick}></span>
-		);
-
-	}
-
-});
-
-var ImgFigure = React.createClass({
-
-	handleClick: function(ev){
-
-		if(this.props.arrange.isCenter){
-			this.props.inverse();
-		}else{
-			this.props.center();
-		}
-
-		ev.stopPropagation();
-		ev.preventDefault();
-
-	},
-
-	render: function(){
-
-		var styleObj = {};
-
-		if(this.props.arrange.pos){
-			styleObj = this.props.arrange.pos;
-		}
-
-		if(this.props.arrange.rotate){
-			(['Moz','ms','Webkit','']).forEach(function(value){
-				styleObj[value + 'Transform'] = 'rotate(' + this.props.arrange.rotate + 'deg)';
-			}.bind(this));
-		}
-
-		if(this.props.arrange.isCenter){
-			styleObj.zIndex = 11;
-			styleObj.backgroundColor = '#f2f2f2';
-			(['Moz','ms','Webkit','']).forEach(function(value){
-				styleObj[value + 'BoxShadow'] = '0 0 20px #ccc';
-			}.bind(this));
-		}
-
-		var imgFigureClassName = 'img-figure';
-		imgFigureClassName += this.props.arrange.isInverse ? ' is-inverse' : '';
-
-		return (
-			<figure className={imgFigureClassName} style={styleObj} onClick={this.handleClick}>
-				<img 	
-					src={this.props.data.imageURL}
-					alt={this.props.data.title} />
-				<figcaption>
-					<h2 className="img-title">{this.props.data.title}</h2>
-					<div className="img-back" onClick={this.handleClick}>
-						<p>
-							{this.props.data.desc}
-						</p>
-					</div>
-				</figcaption>
-			</figure>
-		);
-	}
-
-})
-
+// 构造画廊组件
 var Gallery = React.createClass({
 
 	Constant: {
@@ -271,7 +176,7 @@ var Gallery = React.createClass({
 	getInitialState: function(){
 		return {
 			imgsArrangeArr: [
-				/*{
+				/*{ 
 					pos: {
 						left: 0,
 						top: 0
