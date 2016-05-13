@@ -42,7 +42,7 @@ html, body {
 }
 
 .img-figure {
-  width: 320px;
+  width: 330px;
   height: 360px;
   padding: 40px;
   margin: 0;
@@ -70,6 +70,10 @@ html, body {
   -webkit-transition: transform .6s ease-in-out, left .6s ease-in-out, top .6s ease-in-out;
   -ms-transition: transform .6s ease-in-out, left .6s ease-in-out, top .6s ease-in-out;
   -moz-transition: transform .6s ease-in-out, left .6s ease-in-out, top .6s ease-in-out;
+}
+
+.img-figure img {
+  width: 250px;
 }
 
 .is-inverse {
