@@ -1,6 +1,8 @@
 # gallery-by-react
 A gallery by reactjs
 
+>[Demo](https://perlou.github.io/gallery-by-react) 
+
 Build:
 
 ```
